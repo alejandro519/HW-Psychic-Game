@@ -1,94 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Psychic Game</title>
 </head>
+
 <body>
 
-<h1>The Pyschic Game</h1>
-<p>Guess what letter I'm thinking of!</p>
-<p id="wins">Wins:</p>
-<p id="losses">Losses:</p>
-<p id="guesses-left">Guesses Left:</p>
-<p id="guesses-so-far">Your Guesses So Far:</p>
+    <h1>The Pyschic Game</h1>
+    <p>Guess what letter I'm thinking of!</p>
+    <p id="wins">Wins: 0</p>
+    <p id="losses">Losses: 0</p>
+    <p id="guesses-left">Guesses Left: 9</p>
+    <p id="guesses-so-far">Your Guesses So Far:</p>
 
 
     <script>
 
-/*
-You're going to make a game just like the one in the video. 
-Essentially, the app randomly picks a letter, and the user has to guess which letter the app chose. 
+        //Define the variables that will be used for the game - some letters in the alphabet. This will be an array.
 
-Put the following text on your page:
+        var letters = ["r", "s", "t", "l", "n", "e", "y"];
 
-Guess what letter I'm thinking of
-Wins: (# of times the user has guessed the letter correctly)
-Losses: (# of times the user has failed to guess the letter correctly after exhausting all guesses)
-Guesses Left: (# of guesses left. This will update)
-Your Guesses So Far: (the specific letters that the user typed. Display these until the user either wins or loses.)
+        //Create variables that record the wins, losses and remaining guesses and their starting value
 
-When the player wins, increase the Wins counter and start the game over again (without refreshing the page).
-When the player loses, increase the Losses counter and restart the game without a page refresh (just like when the user wins).
-*/
+        var wins = 0;
+        var losses = 0;
+        var guessesLeft = 9;
 
+        var winsText = document.getElementById("wins");
+        var lossesText = document.getElementById("losses");
+        var guessesLeftText = document.getElementById("guesses-left");
+        var yourGuessesSoFarText = document.getElementById("guesses-so-far");
 
 
-//Define the variables that will be used for the game - some letters in the alphabet. This will be an array.
+        //Record the number of times the user has chosen a letter in the array correctly. onKeyup.
+        document.onkeyup = function (event) {
 
-var letters = ["r", "s", "t", "l", "n", "e", "y"];
+            var computerGuess = letters[Math.floor(Math.random() * letters.length)];
+            console.log(computerGuess);
 
-//Create variables that record the wins, losses and remaining guesses and their starting value
+            var userGuess = event.key;
+            console.log(userGuess);
 
-var wins = 0;
-var losses = 0;
-var guessesLeft = 9;
-//var guessesSoFar = ;
+            if ((computerGuess === "r") || (computerGuess === "s") || (computerGuess === "t") || (computerGuess === "l") || (computerGuess === "n") || (computerGuess === "e")); {
 
-var winsText = document.getElementById("wins");
-var lossesText = document.getElementById("losses");
-var guessesLeftText = document.getElementById("guesses-left");
+                if ((computerGuess === "r" && userGuess === "r") ||
+                    (computerGuess === "s" && userGuess === "s") ||
+                    (computerGuess === "t" && userGuess === "t")) {
+                    wins++;
+                    console.log("You Guessed Right!")
+                } else {
+                    losses++;
+                    guessesLeft--;
+                    console.log("You Lose!")
+                }
 
+                winsText.textContent = "Wins: " + wins;
 
-//Record the number of times the user has chosen a letter in the array correctly. onKeyup.
-document.onkeyup = function (event){
+                //Record the number of times the user did not choose correctly
+                lossesText.textContent = "Losses: " + losses;
 
-    var computerGuess = letters[Math.floor(Math.random() * letters.length)];
-    console.log(computerGuess);
-    
-    var userGuess = event.key;
-    console.log(userGuess);
+                //Guess the number of guesses left for the user. forLoop
+                guessesLeftText.textContent = "Guesses Left: " + guessesLeft;
 
-    if ((computerGuess === "r") || (computerGuess === "s") || (computerGuess === "t") || (computerGuess === "l") || (computerGuess === "n") || (computerGuess === "e")); {
-
-    if ((computerGuess === "r" && userGuess === "r") ||
-          (computerGuess === "s" && userGuess === "s") || 
-          (computerGuess === "t" && userGuess === "t")) {
-          wins++;
-          console.log("You Guessed Right!")
-        }  else {
-          losses++;
-          console.log("You Lose!")
-        }    
-
-        winsText.textContent = "Wins: " + wins;
-        lossesText.textContent = "Losses: " + losses;
-        guessesLeftText.textContent = "Guesses Left: " + guessesLeftText;
-    }
-}
-
-
-
-//Record the number of times the user did not choose correctly
-
-//Guess the number of guesses left for the user. forLoop
-
-//Record and display the letters the user chose so far until the user wins or loses
-
-        
+                //Record and display the letters the user chose so far until the user wins or loses
+                yourGuessesSoFarText.textContent = "Your Guesses So Far: " + userGuess + ",";
+            }
+        }
 
     </script>
 </body>
+
 </html>
