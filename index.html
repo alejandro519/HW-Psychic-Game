@@ -9,11 +9,11 @@
 <body>
 
 <h1>The Pyschic Game</h1>
-<p id="directions-text">Guess what letter I'm thinking of!</p>
+<p>Guess what letter I'm thinking of!</p>
 <p id="wins">Wins:</p>
 <p id="losses">Losses:</p>
-<p id="games-left">Guesses Left:</p>
-<p id="guesses">Your Guesses So Far:</p>
+<p id="guesses-left">Guesses Left:</p>
+<p id="guesses-so-far">Your Guesses So Far:</p>
 
 
     <script>
@@ -42,9 +42,14 @@ var letters = ["r", "s", "t", "l", "n", "e", "y"];
 
 //Create variables that record the wins, losses and remaining guesses and their starting value
 
-var wins = 0
-var losses = 0
-var guessesLeft = 9
+var wins = 0;
+var losses = 0;
+var guessesLeft = 9;
+//var guessesSoFar = ;
+
+var winsText = document.getElementById("wins");
+var lossesText = document.getElementById("losses");
+var guessesLeftText = document.getElementById("guesses-left");
 
 
 //Record the number of times the user has chosen a letter in the array correctly. onKeyup.
@@ -68,6 +73,9 @@ document.onkeyup = function (event){
           console.log("You Lose!")
         }    
 
+        winsText.textContent = "Wins: " + wins;
+        lossesText.textContent = "Losses: " + losses;
+        guessesLeftText.textContent = "Guesses Left: " + guessesLeftText;
     }
 }
 
