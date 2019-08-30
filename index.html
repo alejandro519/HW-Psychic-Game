@@ -40,16 +40,38 @@ When the player loses, increase the Losses counter and restart the game without 
 
 var letters = ["r", "s", "t", "l", "n", "e", "y"];
 
+//Create variables that record the wins, losses and remaining guesses and their starting value
+
+var wins = 0
+var losses = 0
+var guessesLeft = 9
+
+
 //Record the number of times the user has chosen a letter in the array correctly. onKeyup.
 document.onkeyup = function (event){
-    var userChoice = event.key;
-    console.log(userChoice);
 
     var computerGuess = letters[Math.floor(Math.random() * letters.length)];
     console.log(computerGuess);
+    
+    var userGuess = event.key;
+    console.log(userGuess);
 
+    if ((computerGuess === "r") || (computerGuess === "s") || (computerGuess === "t") || (computerGuess === "l") || (computerGuess === "n") || (computerGuess === "e")); {
 
+    if ((computerGuess === "r" && userGuess === "r") ||
+          (computerGuess === "s" && userGuess === "s") || 
+          (computerGuess === "t" && userGuess === "t")) {
+          wins++;
+          console.log("You Guessed Right!")
+        }  else {
+          losses++;
+          console.log("You Lose!")
+        }    
+
+    }
 }
+
+
 
 //Record the number of times the user did not choose correctly
 
