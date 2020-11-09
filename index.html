@@ -6,19 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Psychic Game</title>
+
 </head>
 
 <body>
 
     <h1>The Pyschic Game</h1>
     <p>Guess what letter I'm thinking of!</p>
-    <p id="wins">Wins: 0</p>
-    <p id="losses">Losses: 0</p>
-    <p id="guesses-left">Guesses Left: 9</p>
-    <p id="guesses-so-far">Your Guesses So Far:</p>
+    <p id="wins"></p>
+    <p id="losses"></p>
+    <p id="guesses-left"></p>
+    <p id="guesses-so-far"></p>
 
 
-    <script>
+    
+    
+    <!-- <script>
 
         //Define the variables that will be used for the game - some letters in the alphabet. This will be an array.
 
@@ -45,11 +48,15 @@
             var userGuess = event.key;
             console.log(userGuess);
 
-            if ((computerGuess === "r") || (computerGuess === "s") || (computerGuess === "t") || (computerGuess === "l") || (computerGuess === "n") || (computerGuess === "e")); {
+            if ((computerGuess === "r") || (computerGuess === "s") || (computerGuess === "t") || (computerGuess === "l") || (computerGuess === "n") || (computerGuess === "e") || (computerGuess === "y")); {
 
                 if ((computerGuess === "r" && userGuess === "r") ||
                     (computerGuess === "s" && userGuess === "s") ||
-                    (computerGuess === "t" && userGuess === "t")) {
+                    (computerGuess === "t" && userGuess === "t") ||
+                    (computerGuess === "l" && userGuess === "l") ||
+                    (computerGuess === "n" && userGuess === "n") ||
+                    (computerGuess === "e" && userGuess === "e") ||
+                    (computerGuess === "y" && userGuess === "y")) {
                     wins++;
                     console.log("You Guessed Right!")
                 } else {
@@ -71,7 +78,9 @@
             }
         }
 
-    </script>
+    </script> -->
+
+    <script src="./assets/javascript/game.js"></script>
 </body>
 
 </html>
